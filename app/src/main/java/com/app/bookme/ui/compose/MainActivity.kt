@@ -1,4 +1,4 @@
-package com.app.bookme
+package com.app.bookme.ui.compose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
