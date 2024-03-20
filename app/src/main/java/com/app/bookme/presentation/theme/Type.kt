@@ -1,4 +1,4 @@
-package com.app.bookme.ui.theme
+package com.app.bookme.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
