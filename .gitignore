@@ -26,9 +26,15 @@ proguard/
 .navigation/
 # Android Studio captures folder
 captures/
+.externalNativeBuild/
+.cxx/
+output.json
 # IntelliJ
 *.iml
 .idea/
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
 # .idea/workspace.xml
 # .idea/tasks.xml
 # .idea/gradle.xml
@@ -46,7 +52,6 @@ captures/
 *.keystore
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
-.cxx/
 # Google Services (e.g. APIs or Firebase)
 google-services.json
 # Freeline
@@ -72,3 +77,5 @@ lint/tmp/
 # App Specific cases 
 app/release/output.json
 .idea/codeStyles/
+# Android Profiling
+*.hprof
