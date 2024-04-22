@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Bookme"
+rootProject.name = "Bookme For Business"
 include(":app")
  
