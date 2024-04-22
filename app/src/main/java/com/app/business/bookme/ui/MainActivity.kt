@@ -1,10 +1,10 @@
-package com.app.bookme.ui
+package com.app.business.bookme.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.app.bookme.ui.login.LoginLayout
-import com.app.bookme.ui.theme.BookmeTheme
+import com.app.business.bookme.ui.login.LoginLayout
+import com.app.business.bookme.ui.theme.BookmeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

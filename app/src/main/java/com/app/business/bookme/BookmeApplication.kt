@@ -1,4 +1,4 @@
-package com.app.bookme
+package com.app.business.bookme
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

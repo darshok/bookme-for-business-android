@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.app.bookme"
+    namespace = "com.app.business.bookme"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.app.bookme.business"
+        applicationId = "com.app.business.bookme"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

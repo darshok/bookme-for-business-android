@@ -1,4 +1,4 @@
-package com.app.bookme.ui.theme
+package com.app.business.bookme.ui.theme
 import androidx.compose.ui.graphics.Color
 
 val md_theme_light_primary = Color(0xFF5A39EE)

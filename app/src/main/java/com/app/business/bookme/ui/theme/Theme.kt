@@ -1,4 +1,4 @@
-package com.app.bookme.ui.theme
+package com.app.business.bookme.ui.theme
 
 import android.app.Activity
 import android.os.Build
