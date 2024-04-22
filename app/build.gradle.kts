@@ -10,7 +10,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.app.bookme"
+        applicationId = "com.app.bookme.business"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
@@ -53,13 +53,13 @@ android {
 
 dependencies {
 
-    implementation("com.google.dagger:hilt-android:2.50")
-    implementation("androidx.credentials:credentials:1.3.0-alpha02")
-    implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha02")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("com.google.dagger:hilt-android:2.51")
+    implementation("androidx.credentials:credentials:1.3.0-alpha03")
+    implementation("androidx.credentials:credentials-play-services-auth:1.3.0-alpha03")
+    kapt("com.google.dagger:hilt-android-compiler:2.45")
+    implementation("androidx.core:core-ktx:1.13.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
+    implementation("androidx.activity:activity-compose:1.9.0")
     implementation(platform("androidx.compose:compose-bom:2024.04.00"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")

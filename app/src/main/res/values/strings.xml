@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bookme</string>
+    <string name="app_name">Bookme For Business</string>
     <string name="login_button">Login</string>
     <string name="user_label">User</string>
     <string name="password_label">Password</string>
