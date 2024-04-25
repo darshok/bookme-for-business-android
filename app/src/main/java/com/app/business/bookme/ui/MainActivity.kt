@@ -3,7 +3,6 @@ package com.app.business.bookme.ui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.app.business.bookme.ui.signup.SignUpLayout
 import com.app.business.bookme.ui.theme.BookmeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -13,7 +12,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             BookmeTheme {
-                SignUpLayout()
+                BookmeApp()
             }
         }
     }

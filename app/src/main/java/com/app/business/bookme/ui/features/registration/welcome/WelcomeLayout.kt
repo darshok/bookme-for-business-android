@@ -1,4 +1,4 @@
-package com.app.business.bookme.ui.welcome
+package com.app.business.bookme.ui.features.registration.welcome
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -20,7 +20,7 @@ import com.app.business.bookme.R
 import com.app.business.bookme.ui.theme.BookmeTheme
 
 @Composable
-fun WelcomeLayout() {
+fun WelcomeLayout(onCreateAccountClick: () -> Unit, onLogInClick: () -> Unit) {
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -37,7 +37,7 @@ fun WelcomeLayout() {
                 textAlign = TextAlign.Center
             )
             Button(
-                onClick = { /*TODO*/ },
+                onClick = onCreateAccountClick,
                 Modifier.padding(top = 16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
@@ -54,7 +54,7 @@ fun WelcomeLayout() {
                     text = stringResource(id = R.string.already_created_account),
                     style = MaterialTheme.typography.bodyMedium
                 )
-                TextButton(onClick = { /*TODO*/ }) {
+                TextButton(onClick = onLogInClick) {
                     Text(
                         text = stringResource(id = R.string.log_in_button),
                         color = MaterialTheme.colorScheme.primary
@@ -69,6 +69,6 @@ fun WelcomeLayout() {
 @Composable
 fun WelcomePreview() {
     BookmeTheme(dynamicColor = false) {
-        WelcomeLayout()
+        WelcomeLayout({},{})
     }
 }

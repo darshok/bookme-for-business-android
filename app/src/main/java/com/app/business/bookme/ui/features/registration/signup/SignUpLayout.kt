@@ -1,10 +1,12 @@
-package com.app.business.bookme.ui.signup
+package com.app.business.bookme.ui.features.registration.signup
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -16,15 +18,16 @@ import com.app.business.bookme.R
 import com.app.business.bookme.ui.theme.BookmeTheme
 
 @Composable
-fun SignUpLayout() {
-    Scaffold(topBar = { SignUpTopBar() }) { contentPadding ->
-        SignUpContent(Modifier.padding(top = contentPadding.calculateTopPadding()))
+fun SignUpCredentials(onNextClick: () -> Unit, onBackPressed: () -> Unit) {
+    Scaffold(topBar = { SignUpTopBar(onBackPressed = onBackPressed) }) { contentPadding ->
+        SignUpContent(Modifier.padding(top = contentPadding.calculateTopPadding()), onNextClick)
     }
 }
 
 @Composable
 fun SignUpContent(
     modifier: Modifier = Modifier,
+    onNextClick: () -> Unit,
 ) {
     Surface(modifier = modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(
@@ -48,8 +51,8 @@ fun SignUpContent(
                 )
             })
             Button(
-                onClick = { /*TODO*/ },
-                Modifier.padding(vertical = 16.dp),
+                onClick = onNextClick,
+                modifier = Modifier.padding(vertical = 16.dp),
                 colors = ButtonDefaults.buttonColors(
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     contentColor = MaterialTheme.colorScheme.onPrimaryContainer
@@ -108,15 +111,35 @@ fun SignUpDetails() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignUpTopBar() {
-
+fun SignUpTopBar(onBackPressed: () -> Unit) {
+    TopAppBar(
+        colors = TopAppBarDefaults.topAppBarColors(
+            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            titleContentColor = MaterialTheme.colorScheme.primary,
+        ),
+        title = {
+            Text(stringResource(id = R.string.create_account_button))
+        },
+        navigationIcon = {
+            IconButton(
+                onClick = onBackPressed,
+                colors = IconButtonDefaults.iconButtonColors(contentColor = MaterialTheme.colorScheme.primary)
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back"
+                )
+            }
+        },
+    )
 }
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun SignUpPreview() {
     BookmeTheme(dynamicColor = false) {
-        SignUpLayout()
+        SignUpCredentials({}, {})
     }
 }

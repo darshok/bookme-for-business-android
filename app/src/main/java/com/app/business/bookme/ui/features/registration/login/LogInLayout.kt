@@ -1,4 +1,4 @@
-package com.app.business.bookme.ui.login
+package com.app.business.bookme.ui.features.registration.login
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -24,7 +24,7 @@ import com.app.business.bookme.R
 import com.app.business.bookme.ui.theme.BookmeTheme
 
 @Composable
-fun LoginLayout() {
+fun LogInLayout() {
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -64,8 +64,8 @@ fun LoginLayout() {
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
-fun LoginPreview() {
+fun LogInPreview() {
     BookmeTheme(dynamicColor = false) {
-        LoginLayout()
+        LogInLayout()
     }
 }
