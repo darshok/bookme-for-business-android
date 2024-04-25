@@ -6,15 +6,8 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
+import com.app.business.bookme.ui.features.authentication.AuthenticationLayout
 import com.app.business.bookme.ui.features.home.HomeLayout
-import com.app.business.bookme.ui.features.registration.LogIn
-import com.app.business.bookme.ui.features.registration.SignUp
-import com.app.business.bookme.ui.features.registration.SignUpDetails
-import com.app.business.bookme.ui.features.registration.Welcome
-import com.app.business.bookme.ui.features.registration.login.LogInLayout
-import com.app.business.bookme.ui.features.registration.signup.SignUpCredentials
-import com.app.business.bookme.ui.features.registration.welcome.WelcomeLayout
 
 
 @Composable
@@ -28,24 +21,10 @@ fun BookmeNavHost(
         modifier = modifier
     ) {
         composable(route = Home.route) {
-            HomeLayout(onRequireRegistration = { navController.navigateSingleTopTo(Registration.route) })
+            HomeLayout(onRequireAuthentication = { navController.navigateSingleTopTo(Authentication.route) })
         }
-        navigation(startDestination = Welcome.route, route = Registration.route) {
-            composable(route = Welcome.route) {
-                WelcomeLayout(
-                    onCreateAccountClick = { navController.navigate(SignUp.route) },
-                    onLogInClick = { navController.navigate(LogIn.route) })
-            }
-            composable(route = LogIn.route) {
-                LogInLayout()
-            }
-            navigation(startDestination = SignUpCredentials.route, route = SignUp.route) {
-                composable(route = SignUpCredentials.route) {
-                    SignUpCredentials(
-                        onNextClick = { navController.navigate(SignUpDetails.route) },
-                        onBackPressed = { navController.navigateUp() })
-                }
-            }
+        composable(route = Authentication.route) {
+            AuthenticationLayout()
         }
     }
 }

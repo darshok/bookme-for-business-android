@@ -1,4 +1,4 @@
-package com.app.business.bookme.ui.features.registration.welcome
+package com.app.business.bookme.ui.features.authentication.welcome
 
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
@@ -69,6 +69,6 @@ fun WelcomeLayout(onCreateAccountClick: () -> Unit, onLogInClick: () -> Unit) {
 @Composable
 fun WelcomePreview() {
     BookmeTheme(dynamicColor = false) {
-        WelcomeLayout({},{})
+        WelcomeLayout({}, {})
     }
 }

@@ -6,9 +6,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.app.business.bookme.ui.theme.BookmeTheme
 
 @Composable
-fun HomeLayout(onRequireRegistration: () -> Unit) {
+fun HomeLayout(onRequireAuthentication: () -> Unit) {
     // TODO: Check whether user exists, if not then navigate to log in
-    onRequireRegistration.invoke()
+    onRequireAuthentication.invoke()
 }
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)

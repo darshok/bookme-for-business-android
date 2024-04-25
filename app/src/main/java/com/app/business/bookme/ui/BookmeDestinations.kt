@@ -4,20 +4,21 @@ interface BookmeDestination {
     val route: String
 }
 
+// NavHost Routes
+object SignUp : BookmeDestination {
+    override val route = "sign_up"
+}
+object Authentication : BookmeDestination {
+    override val route = "authentication"
+}
+
+// Screen Routes
 object Home : BookmeDestination {
     override val route = "home"
 }
 
-object Registration : BookmeDestination {
-    override val route = "registration"
-}
-
 object LogIn : BookmeDestination {
     override val route = "log_in"
-}
-
-object SignUp : BookmeDestination {
-    override val route = "sign_up"
 }
 
 object SignUpCredentials : BookmeDestination {
