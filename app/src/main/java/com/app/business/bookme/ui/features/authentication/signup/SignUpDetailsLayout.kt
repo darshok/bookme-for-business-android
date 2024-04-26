@@ -17,47 +17,57 @@ import com.app.business.bookme.ui.theme.BookmeTheme
 
 
 @Composable
-fun SignUpDetails() {
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Top,
-            modifier = Modifier.padding(top = 16.dp)
+fun SignUpDetails(
+    modifier: Modifier = Modifier,
+    onBackPressed: () -> Unit,
+) {
+    Scaffold(topBar = { SignUpTopBar(onBackPressed = onBackPressed) }) { contentPadding ->
+        Surface(
+            modifier = modifier
+                .padding(contentPadding)
+                .fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
         ) {
-            OutlinedTextField(value = "", onValueChange = {}, label = {
-                Text(
-                    text = stringResource(id = R.string.name_label)
-                )
-            })
-            OutlinedTextField(value = "", onValueChange = {}, label = {
-                Text(
-                    text = stringResource(id = R.string.surname_label)
-                )
-            })
-            OutlinedTextField(value = "", onValueChange = {}, label = {
-                Text(
-                    text = stringResource(id = R.string.birth_date_label)
-                )
-            })
-            OutlinedTextField(value = "", onValueChange = {}, label = {
-                Text(
-                    text = stringResource(id = R.string.location_label)
-                )
-            })
-            OutlinedTextField(value = "", onValueChange = {}, label = {
-                Text(
-                    text = stringResource(id = R.string.phone_label)
-                )
-            })
-            Button(
-                onClick = { /*TODO*/ },
-                Modifier.padding(vertical = 16.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer
-                )
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Top,
+                modifier = Modifier.padding(top = 16.dp)
             ) {
-                Text(text = stringResource(id = R.string.create_button))
+                OutlinedTextField(value = "", onValueChange = {}, label = {
+                    Text(
+                        text = stringResource(id = R.string.name_label)
+                    )
+                })
+                OutlinedTextField(value = "", onValueChange = {}, label = {
+                    Text(
+                        text = stringResource(id = R.string.surname_label)
+                    )
+                })
+                OutlinedTextField(value = "", onValueChange = {}, label = {
+                    Text(
+                        text = stringResource(id = R.string.birth_date_label)
+                    )
+                })
+                OutlinedTextField(value = "", onValueChange = {}, label = {
+                    Text(
+                        text = stringResource(id = R.string.location_label)
+                    )
+                })
+                OutlinedTextField(value = "", onValueChange = {}, label = {
+                    Text(
+                        text = stringResource(id = R.string.phone_label)
+                    )
+                })
+                Button(
+                    onClick = { /*TODO*/ },
+                    Modifier.padding(vertical = 16.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        contentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                    )
+                ) {
+                    Text(text = stringResource(id = R.string.create_button))
+                }
             }
         }
     }
@@ -67,6 +77,6 @@ fun SignUpDetails() {
 @Composable
 fun SignUpDetailsPreview() {
     BookmeTheme(dynamicColor = false) {
-        SignUpDetails()
+        SignUpDetails(Modifier, {})
     }
 }

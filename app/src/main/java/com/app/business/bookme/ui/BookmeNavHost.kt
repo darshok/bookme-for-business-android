@@ -6,7 +6,7 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.app.business.bookme.ui.features.authentication.AuthenticationLayout
+import com.app.business.bookme.ui.features.authentication.authenticationNavHost
 import com.app.business.bookme.ui.features.home.HomeLayout
 
 
@@ -17,15 +17,13 @@ fun BookmeNavHost(
 ) {
     NavHost(
         navController = navController,
-        startDestination = Home.route,
+        startDestination = BookmeScreen.Home.route,
         modifier = modifier
     ) {
-        composable(route = Home.route) {
-            HomeLayout(onRequireAuthentication = { navController.navigateSingleTopTo(Authentication.route) })
+        composable(route = BookmeScreen.Home.route) {
+            HomeLayout(onRequireAuthentication = { navController.navigateSingleTopTo(BookmeScreen.Authentication.route) })
         }
-        composable(route = Authentication.route) {
-            AuthenticationLayout()
-        }
+        authenticationNavHost(navController)
     }
 }
 

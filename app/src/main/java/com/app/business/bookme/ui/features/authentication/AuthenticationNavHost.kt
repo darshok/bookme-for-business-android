@@ -1,40 +1,27 @@
 package com.app.business.bookme.ui.features.authentication
 
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.navigation.compose.NavHost
+import androidx.navigation.NavController
+import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
-import com.app.business.bookme.ui.LogIn
-import com.app.business.bookme.ui.SignUp
-import com.app.business.bookme.ui.Welcome
+import androidx.navigation.navigation
+import com.app.business.bookme.ui.BookmeScreen
 import com.app.business.bookme.ui.features.authentication.login.LogInLayout
-import com.app.business.bookme.ui.features.authentication.signup.SignUpLayout
+import com.app.business.bookme.ui.features.authentication.signup.signUpNavHost
 import com.app.business.bookme.ui.features.authentication.welcome.WelcomeLayout
 
-@Composable
-fun AuthenticationNavHost(
-    modifier: Modifier = Modifier,
-) {
-    val navController = rememberNavController()
-
-    NavHost(
-        navController = navController,
-        startDestination = Welcome.route,
-        modifier = modifier
+fun NavGraphBuilder.authenticationNavHost(navController: NavController) {
+    navigation(
+        startDestination = BookmeScreen.Authentication.Welcome.route,
+        route = BookmeScreen.Authentication.route
     ) {
-        composable(route = Welcome.route) {
+        composable(route = BookmeScreen.Authentication.Welcome.route) {
             WelcomeLayout(
-                onCreateAccountClick = { navController.navigate(SignUp.route) },
-                onLogInClick = { navController.navigate(LogIn.route) })
+                onCreateAccountClick = { navController.navigate(BookmeScreen.Authentication.SignUp.route) },
+                onLogInClick = { navController.navigate(BookmeScreen.Authentication.LogIn.route) })
         }
-        composable(route = LogIn.route) {
+        composable(route = BookmeScreen.Authentication.LogIn.route) {
             LogInLayout()
         }
-        composable(route = SignUp.route) {
-            SignUpLayout {
-                navController.navigateUp()
-            }
-        }
+        signUpNavHost(navController)
     }
 }
