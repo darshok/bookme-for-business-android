@@ -68,9 +68,9 @@ fun SignUpCredentials(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SignUpTopBar(onBackPressed: () -> Unit) {
-    TopAppBar(
+    CenterAlignedTopAppBar(
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = MaterialTheme.colorScheme.background,
             titleContentColor = MaterialTheme.colorScheme.primary,
         ),
         title = {

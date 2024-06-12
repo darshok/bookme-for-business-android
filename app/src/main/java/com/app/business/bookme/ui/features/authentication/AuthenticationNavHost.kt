@@ -20,7 +20,7 @@ fun NavGraphBuilder.authenticationNavHost(navController: NavController) {
                 onLogInClick = { navController.navigate(BookmeScreen.Authentication.LogIn.route) })
         }
         composable(route = BookmeScreen.Authentication.LogIn.route) {
-            LogInLayout()
+            LogInLayout(onBackPressed = { navController.navigateUp() })
         }
         signUpNavHost(navController)
     }
