@@ -20,4 +20,5 @@
     <string name="already_created_account">Already created?</string>
     <string name="log_in_with_or_without">Or</string>
     <string name="discover_places_title">Discover places</string>
+    <string name="search_hint">Search</string>
 </resources>
