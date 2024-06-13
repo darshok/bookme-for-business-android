@@ -1,23 +1,23 @@
 package com.app.business.bookme.ui.features.authentication.signup
 
-import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.app.business.bookme.ui.BookmeScreen
+import com.app.business.bookme.ui.common.navigation.BookmeScreen
+import com.app.business.bookme.ui.common.navigation.NavigationActions
 
-fun NavGraphBuilder.signUpNavHost(navController: NavController) {
+fun NavGraphBuilder.signUpNavHost(navigationActions: NavigationActions) {
     navigation(
         startDestination = BookmeScreen.Authentication.SignUp.SignUpCredentials.route,
         route = BookmeScreen.Authentication.SignUp.route
     ) {
         composable(route = BookmeScreen.Authentication.SignUp.SignUpCredentials.route) {
             SignUpCredentials(
-                onNextClick = { navController.navigate(BookmeScreen.Authentication.SignUp.SignUpDetails.route) },
-                onBackPressed = { navController.navigateUp() })
+                onNextClick = { navigationActions.navigateToSignUpDetails() },
+                onBackPressed = { navigationActions.navigateUp() })
         }
         composable(route = BookmeScreen.Authentication.SignUp.SignUpDetails.route) {
-            SignUpDetails(onBackPressed = { navController.navigateUp() })
+            SignUpDetails(onBackPressed = { navigationActions.navigateUp() })
         }
     }
 }
