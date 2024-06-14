@@ -47,27 +47,7 @@ fun HomeLayout(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    TextField(
-                        modifier = Modifier.weight(1f),
-                        label = { Text(text = stringResource(id = R.string.search_hint)) },
-                        value = "",
-                        leadingIcon = {
-                            Icon(
-                                Icons.Outlined.Search,
-                                contentDescription = "Search icon"
-                            )
-                        },
-                        trailingIcon = {
-                            Icon(Icons.Outlined.Mic, contentDescription = "Mic icon")
-                        },
-                        shape = RoundedCornerShape(16.dp),
-                        colors = TextFieldDefaults.colors(
-                            focusedIndicatorColor = Color.Transparent,
-                            unfocusedIndicatorColor = Color.Transparent
-                        ),
-                        onValueChange = {})
-                    Icon(Icons.AutoMirrored.Filled.List, contentDescription = "List icon")
-                    Icon(Icons.Outlined.LocationOn, contentDescription = "Location icon")
+                    SearchTextField(Modifier.weight(1f))
                 }
                 LazyColumn(
                     modifier = Modifier.padding(horizontal = 16.dp),
@@ -80,6 +60,31 @@ fun HomeLayout(
             }
         }
     }
+}
+
+@Composable
+fun SearchTextField(modifier: Modifier) {
+    TextField(
+        modifier = modifier,
+        label = { Text(text = stringResource(id = R.string.search_hint)) },
+        value = "",
+        leadingIcon = {
+            Icon(
+                Icons.Outlined.Search,
+                contentDescription = "Search icon"
+            )
+        },
+        trailingIcon = {
+            Icon(Icons.Outlined.Mic, contentDescription = "Mic icon")
+        },
+        shape = RoundedCornerShape(16.dp),
+        colors = TextFieldDefaults.colors(
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent
+        ),
+        onValueChange = {})
+    Icon(Icons.AutoMirrored.Filled.List, contentDescription = "List icon")
+    Icon(Icons.Outlined.LocationOn, contentDescription = "Location icon")
 }
 
 @Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
